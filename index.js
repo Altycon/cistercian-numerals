@@ -6,7 +6,6 @@ INPUT_NUMBER = document.querySelector('#NumInput'),
 DECREMENT_NUMBER_BUTTON = document.querySelector('.js-decrement-btn'),
 INCREMENT_NUMBER_BUTTON = document.querySelector('.js-increment-btn'),
 DECIMAL_DISPLAY = document.querySelector('#DecimalDisplay');
-console.log(DECIMAL_DISPLAY.innerText)
 
 const CISTERCIAN_CANVAS = document.getElementById('Canvas1');
 fixCanvas(CISTERCIAN_CANVAS)
@@ -15,6 +14,7 @@ const CC_WIDTH = CISTERCIAN_CANVAS.width,
 CC_HEIGHT = CISTERCIAN_CANVAS.height,
 CC_CTX = CISTERCIAN_CANVAS.getContext('2d');
 
+const dpi = devicePixelRatio;
 let CistercianNumber = 0;
 const Resolution = 40;
 
@@ -36,13 +36,15 @@ const openInputContainer = (ev)=>{
 }
 
 const increaseCistercianNumber = (ev)=>{
-    CistercianNumber++;
-    INPUT_NUMBER.value = CistercianNumber;
-    DECIMAL_DISPLAY.innerText = CistercianNumber.toString();
-    const CN = new Cistercian(CistercianNumber,Resolution);
-    CC_CTX.clearRect(0,0, CC_WIDTH, CC_HEIGHT);
-    CN.render(CC_CTX);
-    drawGrid(CC_CTX, Resolution,'hsl(0 0% 40% / 0.3)')
+    if(CistercianNumber < 10000){
+        CistercianNumber++;
+        INPUT_NUMBER.value = CistercianNumber;
+        DECIMAL_DISPLAY.innerText = CistercianNumber.toString();
+        const CN = new Cistercian(CistercianNumber,Resolution);
+        CC_CTX.clearRect(0,0, CC_WIDTH, CC_HEIGHT);
+        CN.render(CC_CTX);
+        drawGrid(CC_CTX, Resolution,'hsl(0 0% 40% / 0.3)')
+    }
 }
 const decreaseCistercianNumber = (ev)=>{
     if(CistercianNumber > 0){

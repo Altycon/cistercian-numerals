@@ -3,7 +3,7 @@
 class Cistercian{
     constructor(num,resolution,color){
         this.numbers = `${num}`.split('');
-        this.resolution = resolution;
+        this.resolution = resolution * devicePixelRatio;
         this.color = color || getComputedStyle(document.body).getPropertyValue('color');
         this.root = [0,-1,0,1];
         
