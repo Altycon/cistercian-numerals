@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cistercian Numberals</title>
+    <link rel="stylesheet" href="main.css">
+    <script defer src="js/cistercian.js"></script>
+    <script defer src="js/utilities.js"></script>
+    <script defer src="index.js"></script>
+</head>
+<body>
+    <main class="c-calc">
+        <div class="c-calc__menu js-c-calc__menu">
+            <div class="c-calc__menu-content">
+                <ul>
+                    <li><a href="https://altycon.github.io/sustained-partiality/" target="_blank">Somewhere</a></li>
+                </ul>
+            </div>
+            <div class="close-menu-btn js-close-menu-btn">Close</div>
+        </div>
+        <header>
+            <h1>Cistercian Numerals</h1>
+        </header>
+        <section class="c-calc__canvas-ctn">
+            <div class="num-input-ctn js-num-input-ctn">
+                <input type="number" id="NumInput" class="num-input" autocomplete="off">
+            </div>
+            <canvas id="Canvas1"></canvas>
+            <div class="c-calc-decimal-display">
+                <p id="DecimalDisplay">0</p>
+            </div>
+        </section>
+        <section class="c-calc__btns">
+            <div class="btn menu-btn js-menu-btn">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <div class="btn input-btn js-input-btn">123</div>
+            <div class="btn decrement-btn js-decrement-btn">-</div>
+            <div class="btn increment-btn js-increment-btn">+</div>
+        </section>
+    </main>
+</body>
+</html>
