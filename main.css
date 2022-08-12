@@ -28,7 +28,10 @@
         hsl(225 2% 64%),
         hsl(225 2% 58%)
     );
-    --btn-gradient: radial-gradient(hsl(0 0% 50% / 0.2), hsl(0 0% 0% / 0.2))
+    --btn-gradient-inc: radial-gradient(hsl(120 61% 50% / 0.2), hsl(0 0% 0% / 0.2) 50%);
+    --btn-gradient-dec: radial-gradient(hsl(219 79% 66% / 0.2), hsl(0 0% 0% / 0.2) 50%);
+    --btn-gradient-inp: radial-gradient(hsl(60 100% 50% / 0.2), hsl(0 0% 0% / 0.2) 50%);
+
 }
 /*
 *   RESETS
@@ -127,7 +130,7 @@ body{
     justify-content: center;
 }
 .c-calc header h1{
-    font-size: clamp(5px, 3vh, 2rem);
+    font-size: 1.5rem;
     font-weight: 900;
     text-transform: uppercase;
     background-image: var(--title-gradient);
@@ -204,7 +207,6 @@ body{
 }
 .c-calc__btns .btn{
     box-shadow: var(--box-shadow-outward);
-    background-image: var(--btn-gradient);
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -230,10 +232,13 @@ body{
 }
 .input-btn{
     font-weight: 900;
+    background-image: var(--btn-gradient-inp);
 }
 .decrement-btn{
     font-size: 1.5rem;
+    background-image: var(--btn-gradient-dec);
 }
 .increment-btn{
     font-size: 1.5rem;
+    background-image: var(--btn-gradient-inc);
 }

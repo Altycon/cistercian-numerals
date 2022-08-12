@@ -1,5 +1,5 @@
 
-const fixCanvas =(canvas)=>{
+function fixCanvas(canvas){
     if(!canvas){
         throw new Error('Html canvas element missing from function')
     }
@@ -23,35 +23,43 @@ const drawGrid = (ctx,resolution,color)=>{
     
     const width = ctx.canvas.width;
     const height = ctx.canvas.height;
+    const cols = Math.round(width/resolution);
+    const rows = Math.round(height/resolution);
 
-    const drawColumns = (start,end)=>{
-        ctx.save()
-        ctx.translate(width/2,height/2);
-        for(let i = start; i < end; i++){
-            ctx.beginPath();
-            ctx.strokeStyle = color;
-            ctx.moveTo((resolution * i), -height/2);
-            ctx.lineTo((resolution * i), height);
-            ctx.closePath();
-            ctx.stroke();
-        }
-        ctx.restore();
+    // Rendering center-left columns
+    for(let i = 0; i < cols/2; i++){
+        ctx.beginPath();
+        ctx.strokeStyle = color;
+        ctx.moveTo((width/2) - (resolution * i), 0);
+        ctx.lineTo((width/2) - (resolution * i),height);
+        ctx.closePath();
+        ctx.stroke();
     }
-    const drawRows = (start,end)=>{
-        ctx.save()
-        ctx.translate(width/2,height/2);
-        for(let i = start; i < end; i++){
-            ctx.beginPath();
-            ctx.strokeStyle = color;
-            ctx.moveTo(-width/2, (resolution * i));
-            ctx.lineTo(width/2, (resolution * i));
-            ctx.closePath();
-            ctx.stroke();
-        }
-        ctx.restore();
+    // Rendering center-right columns
+    for(let i = 1; i < cols/2; i++){
+        ctx.beginPath();
+        ctx.strokeStyle = color;
+        ctx.moveTo((width/2) + (resolution * i), 0);
+        ctx.lineTo((width/2) + (resolution * i),height);
+        ctx.closePath();
+        ctx.stroke();
     }
-    drawColumns(0,width/2);
-    drawColumns(-width/2, 0);
-    drawRows(0, height/2);
-    drawRows(-height/2,0);
+    // Rendering center-top rows
+    for(let i = 0; i < rows/2; i++){
+        ctx.beginPath();
+        ctx.strokeStyle = color;
+        ctx.moveTo(0, (height/2) - (resolution * i));
+        ctx.lineTo(width, (height/2) -(resolution * i));
+        ctx.closePath();
+        ctx.stroke();
+    }
+    // Rendering center-bottom rows
+    for(let i = 1; i < rows/2; i++){
+        ctx.beginPath();
+        ctx.strokeStyle = color;
+        ctx.moveTo(0, (height/2) + (resolution * i));
+        ctx.lineTo(width, (height/2) + (resolution * i));
+        ctx.closePath();
+        ctx.stroke();
+    }
 }
