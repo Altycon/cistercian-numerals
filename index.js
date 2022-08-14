@@ -39,6 +39,8 @@ const increaseCistercianNumber = (ev)=>{
     if(CistercianNumber < 10000){
         fixCanvas(CISTERCIAN_CANVAS)
         CistercianNumber++;
+        
+        if(CistercianNumber > 9999) CistercianNumber = 9999;
         INPUT_NUMBER.value = CistercianNumber;
         DECIMAL_DISPLAY.innerText = CistercianNumber.toString();
         const CN = new Cistercian(CistercianNumber,Resolution,'limegreen');
@@ -51,6 +53,7 @@ const decreaseCistercianNumber = (ev)=>{
     if(CistercianNumber > 0){
         fixCanvas(CISTERCIAN_CANVAS)
         CistercianNumber--;
+        if(CistercianNumber < 0) CistercianNumber = 0;
         DECIMAL_DISPLAY.innerText = CistercianNumber.toString();
         INPUT_NUMBER.value = CistercianNumber;
         const CN = new Cistercian(CistercianNumber,Resolution,'cornflowerblue');
@@ -63,6 +66,8 @@ const decreaseCistercianNumber = (ev)=>{
 }
 const displayInputNumber = (ev)=>{
     fixCanvas(CISTERCIAN_CANVAS)
+    if(ev.target.value < 0) ev.target.value = 0;
+    if(ev.target.value > 9999) ev.target.value = 9999;
     CistercianNumber = Number(ev.target.value);
     DECIMAL_DISPLAY.innerText = CistercianNumber.toString();
     const CN = new Cistercian(CistercianNumber,Resolution,'yellow');
