@@ -230,7 +230,7 @@ class Cistercian{
     }
     renderConfig(ctx){
         ctx.save();
-        ctx.translate(ctx.canvas.width/2, ctx.canvas.height/2);
+        ctx.translate(ctx.canvas.width/2, (ctx.canvas.height/2)+Resolution);
         this.configurations.forEach( (configuration,index) =>{
             //console.log(`Configuration${index+1}: ` + configuration)
             configuration.forEach( (set,index) => {

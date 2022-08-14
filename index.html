@@ -25,7 +25,23 @@
         </header>
         <section class="c-calc__canvas-ctn">
             <div class="num-input-ctn js-num-input-ctn">
-                <input type="number" id="NumInput" class="num-input" min="0" max="9999" maxlength="4" autocomplete="off">
+                <div class="num-btn_container">
+                    <div class="num-btn" data-button="0">0</div>
+                    <div class="num-btn" data-button="1">1</div>
+                    <div class="num-btn" data-button="2">2</div>
+                    <div class="num-btn" data-button="3">3</div>
+                    <div class="num-btn" data-button="4">4</div>
+                    <div class="num-btn" data-button="5">5</div>
+                    <div class="num-btn" data-button="6">6</div>
+                    <div class="num-btn" data-button="7">7</div>
+                    <div class="num-btn" data-button="8">8</div>
+                    <div class="num-btn" data-button="9">9</div>
+                </div>
+                <div class="num-btn-controls_container">
+                    <div class="num-btn num-clear-btn" data-clear="clear">Clear</div>
+                    <div class="num-btn num-backspace-btn" data-backspace="backspace">Backspace</div>
+                    <div class="num-btn num-close-btn" data-close="close">Close</div>
+                </div>
             </div>
             <canvas id="Canvas1"></canvas>
             <div class="c-calc-decimal-display">
